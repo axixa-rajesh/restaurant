@@ -1,7 +1,7 @@
 import {Routes, Route } from 'react-router-dom';
 // Layouts
-import MainLayout from '../../Layouts/MainLayout';
-import AuthLayout from '../../Layouts/AuthLayout';
+import MainLayout from '../Layouts/MainLayout';
+import AuthLayout from '../Layouts/AuthLayout';
 // Pages
 import Login from '../Pages/Login/Index';
 import Dashboard from '../Pages/Dashboard/Index';
