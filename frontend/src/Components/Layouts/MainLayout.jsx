@@ -1,9 +1,11 @@
 import React from 'react';
+import {Outlet} from 'react-router-dom';
 
-function MainLayout(props) {
+function MainLayout() {
     return (
         <div>
-            
+            <Outlet />
+
         </div>
     );
 }

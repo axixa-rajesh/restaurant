@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Index(props) {
+function Index() {
     return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
       <div style={{ padding: '2rem', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', borderRadius: '8px', width: '350px', background: '#fff' }}>
@@ -16,7 +16,5 @@ function Index(props) {
     </div>
   );
 };
-    );
-}
 
 export default Index;
