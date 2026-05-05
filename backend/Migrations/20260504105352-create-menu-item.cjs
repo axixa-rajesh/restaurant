@@ -1,57 +1,60 @@
-'use strict';
+"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('menuItems', {
+    await queryInterface.createTable("menuItems", {
       menu_item_id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       category_id: {
+        type: Sequelize.STRING,
         allowNull: false,
-        foreignKey: true,
-        type: Sequelize.STRING
+        references: {
+          model: "category",
+          key: "category_id",
+        },
       },
       item_name: {
         allowNull: false,
         unique: true,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       description: {
         allowNull: true,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       price: {
         allowNull: false,
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL,
       },
       is_veg: {
         allowNull: false,
         defaultValue: false,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       is_available: {
         allowNull: false,
         defaultValue: true,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       status: {
         allowNull: false,
-        defaultValue: 'active',
-        type: Sequelize.STRING
+        defaultValue: "active",
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.NOW
+        type: Sequelize.NOW,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.NOW
-      }
+        type: Sequelize.NOW,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('menuItems');
-  }
+    await queryInterface.dropTable("menuItems");
+  },
 };
