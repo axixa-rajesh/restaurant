@@ -18,17 +18,19 @@ module.exports = {
       },
       status: {
         type: Sequelize.ENUM,
-        values: ['active', 'inactive'],
-        defaultValue: 'active', 
+        values: ["active", "inactive"],
+        defaultValue: "active",
         allowNull: false,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.NOW,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.NOW,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
       },
     });
   },

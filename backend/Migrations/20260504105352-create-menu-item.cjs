@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
         references: {
-          model: "category",
+          model: "Categories",
           key: "category_id",
         },
       },
@@ -46,11 +46,13 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.NOW,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.NOW,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
       },
     });
   },
