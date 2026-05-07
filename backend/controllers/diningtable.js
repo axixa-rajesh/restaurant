@@ -13,4 +13,7 @@ function updateDiningTable(req, res) {
 function deleteDiningTable(req, res) {
 
 }
-export { getDiningTables, createDiningTable, updateDiningTable, deleteDiningTable };
+function patchDiningTable(req, res) {
+
+}
+export { getDiningTables, createDiningTable, updateDiningTable, deleteDiningTable, patchDiningTable };

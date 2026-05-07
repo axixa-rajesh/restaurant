@@ -1,17 +1,21 @@
 function getCategories(req, res) {
-  res.send("hello");
+
 }
 
 function createCategory(req, res) {
-  return (req, res) => {};
+
 }
 
-function updateCategory() {
-  return (req, res) => {};
+function updateCategory(req, res) {
+
 }
 
-function deleteCategory() {
-  return (req, res) => {};
+function deleteCategory(req, res) {
+
 }
 
-export { getCategories, createCategory, updateCategory, deleteCategory };
+function patchCategory(req, res) {
+
+}
+
+export { getCategories, createCategory, updateCategory, deleteCategory, patchCategory };
