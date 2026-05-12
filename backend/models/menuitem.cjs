@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class menuItem extends Model {
     /**
@@ -13,17 +11,22 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  menuItem.init({
-    category_id: DataTypes.STRING,
-    item_name: DataTypes.STRING,
-    description: DataTypes.STRING,
-    price: DataTypes.DECIMAL,
-    is_veg: DataTypes.BOOLEAN,
-    is_available: DataTypes.BOOLEAN,
-    status: DataTypes.ENUM('active', 'inactive'),
-  }, {
-    sequelize,
-    modelName: 'menuItem',
-  });
+  menuItem.init(
+    {
+      menu_item_id: DataTypes.STRING,
+      category_id: DataTypes.STRING,
+      item_name: DataTypes.STRING,
+      description: DataTypes.STRING,
+      price: DataTypes.DECIMAL,
+      is_veg: DataTypes.BOOLEAN,
+      is_available: DataTypes.BOOLEAN,
+      status: DataTypes.ENUM("active", "inactive"),
+    },
+    {
+      sequelize,
+      modelName: "menuItem",
+      tableName: "menuItems",
+    },
+  );
   return menuItem;
 };
