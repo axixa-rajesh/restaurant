@@ -23,7 +23,7 @@ async function createDiningTable(req, res) {
 }
 
 async function updateDiningTable(req, res) {
-    try { const { id } = req.params.id;
+    try { const { id } = req.params;
         const [updated] = await DiningTableModel.update(req.body, { where: { id } });
         res.json({ updated });
     } catch (error) {
@@ -33,7 +33,7 @@ async function updateDiningTable(req, res) {
 
 async function deleteDiningTable(req, res) {
     try {
-        const { id } = req.params.id;
+        const { id } = req.params;
         const deleted = await DiningTableModel.destroy({ where: { id } });
         res.json({ deleted });
     } catch (error) {
@@ -43,7 +43,7 @@ async function deleteDiningTable(req, res) {
 
 async function patchDiningTable(req, res) {
     try {
-        const { id } = req.params.id;
+        const { id } = req.params;
         const [updated] = await DiningTableModel.update(req.body, { where: { id } });
         res.json({ updated });
     } catch (error) {

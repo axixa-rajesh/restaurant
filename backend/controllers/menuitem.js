@@ -25,7 +25,7 @@ async function createMenuItem(req, res) {
 
 async function updateMenuItem(req, res) {
     try {
-        const { menu_item_id } = req.params.id;
+        const { menu_item_id } = req.params;
         const { category_id, item_name, description, price, is_veg, is_available, status } = req.body;
         const [updated] = await MenuItem.update({ category_id, item_name, description, price, is_veg, is_available, status }, { where: { menu_item_id } });
         if (!updated) {
@@ -40,7 +40,7 @@ async function updateMenuItem(req, res) {
 
 async function deleteMenuItem(req, res) {
     try {
-        const { menu_item_id } = req.params.id;
+        const { menu_item_id } = req.params;
         const deleted = await MenuItem.destroy({ where: { menu_item_id } });
         if (!deleted) {
             return res.status(404).json({ error: "Menu item not found" });
