@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "newpassword@ravisql",
+    "password": "",
     "database": "restaurant",
     "host": "localhost",
     "dialect": "mysql"
