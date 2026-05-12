@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "mukul8302387975,9929Tanwa",
-    "database": "resturant",
-    "host": "127.0.0.1",
+    "password": "ANIMELOVERk,00",
+    "database": "restaurant",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
