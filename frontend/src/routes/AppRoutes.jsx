@@ -1,5 +1,5 @@
 // AppRoutes
-import {Routes, Route} from 'react-router-dom';
+import {zzzzRoutes, Route} from 'react-router-dom';
 // Pages
 import Dashboard from '../pages/dashboard';
 import Users from '../pages/Users';

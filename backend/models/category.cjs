@@ -8,21 +8,35 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+  Category.hasMany(models.MenuItem,{ 
+    foreignKey: "category_id",
+  }
+  )
+};
+
       // define association here
     }
-  }
-  Category.init(
-    {
-      category_id: DataTypes.STRING,
-      category_name: DataTypes.STRING,
-      description: DataTypes.STRING,
-      status: DataTypes.ENUM("active", "inactive"),
-    },
-    {
-      sequelize,
-      modelName: "Category",
-      tableName: "Categories",
-    },
-  );
-  return Category;
-};
+    Category.init(
+      {
+        Category_id: {
+          type: DataTypes.STRING,
+          primaryKey: true,
+          allowNull: false,
+        },
+        category_name: DataTypes.STRING,
+        description: DataTypes.STRING,
+        status: { 
+          type: DataTypes.ENUM("active", "inactive"),
+          defaultValue: "active",
+          allowNull: false,
+        }
+      },
+      {
+        sequelize,
+        modelName: "Category",
+        tableName: "Categories",
+      },
+    );
+    return Category;
+  };
+
