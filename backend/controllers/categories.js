@@ -1,4 +1,4 @@
-import CategoriesModel from "../models/categories.cjs";
+import CategoriesModel from "../models/category.cjs";
 import sequelize from "../config/db.js";
 import { DataTypes } from "sequelize";
 
@@ -6,7 +6,7 @@ const Category = CategoriesModel(sequelize, DataTypes);
 
 async function getCategories(req, res) {
   try {
-  const data = await Category.findAll();
+    const data = await Category.findAll();
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -15,8 +15,13 @@ async function getCategories(req, res) {
 
 async function createCategory(req, res) {
   try {
-    const { name } = req.body;
-    const category = await Category.create({ name });
+    const { category_name, category_id, description, status } = req.body;
+    const category = await Category.create({
+      category_name,
+      category_id,
+      description,
+      status,
+    });
     res.status(201).json(category);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -26,8 +31,11 @@ async function createCategory(req, res) {
 async function updateCategory(req, res) {
   try {
     const { id } = req.params;
-    const { name } = req.body;
-    const [updated] = await Category.update({ name }, { where: { id } });
+    const { category_name, description, status } = req.body;
+    const [updated] = await Category.update(
+      { category_name, description, status },
+      { where: { id } },
+    );
     if (!updated) {
       return res.status(404).json({ error: "Category not found" });
     }
