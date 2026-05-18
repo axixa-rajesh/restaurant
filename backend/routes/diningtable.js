@@ -4,8 +4,12 @@ import { getDiningTables, createDiningTable, updateDiningTable, deleteDiningTabl
 const diningrouter = express.Router();
 
 diningrouter.get('/', getDiningTables);
+
 diningrouter.post('/', createDiningTable);
+
 diningrouter.put('/:id', updateDiningTable);
+
 diningrouter.delete('/:id', deleteDiningTable);
+
 diningrouter.patch('/:id/status', patchDiningTable);
 export default diningrouter;
