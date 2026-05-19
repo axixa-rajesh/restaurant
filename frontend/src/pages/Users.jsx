@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-
+import axios from 'axios';
 
 const Users = () => {
+    const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [statusFilter, setStatusFilter] = useState('');
     const [roleFilter, setRoleFilter] = useState('');
     const [search, setSearch] = useState('');

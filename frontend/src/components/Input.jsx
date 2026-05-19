@@ -1,14 +1,6 @@
 import React from 'react';
 
-const Input = ({
-    type = 'text',
-    label = '',
-    placeholder = '',
-    value = '',
-    onChange,
-    disabled = false,
-    required = false
-}) => {
+const Input = ({type = 'text',label = '',placeholder = '',value = '',onChange,disabled = false,required = false}) => {
     return (
         <div className="input-group">
             {label && <label className="input-label">{label}</label>}

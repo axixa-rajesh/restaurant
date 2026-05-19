@@ -4,13 +4,15 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import AppRoutes from './routes/AppRoutes'
-
+import {BrowserRouter} from 'react-router-dom'
 function App() {
 
   return (
     
     <>
-    <AppRoutes />
+    <BrowserRouter> 
+      <AppRoutes/>
+    </BrowserRouter>
     </>
   )
 }
