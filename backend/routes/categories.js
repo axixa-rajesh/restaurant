@@ -4,7 +4,7 @@ import {
   createCategory,
   updateCategory,
   deleteCategory,
-  patchCategory
+  patchCategory,
 } from "../controllers/categories.js";
 
 const categoriesRouter = express.Router();
