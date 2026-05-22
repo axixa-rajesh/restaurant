@@ -26,7 +26,7 @@ const Login = () => {
             <div className="login-card">
 
                 <h2>Login</h2>
-            {error && <div className="error-message">{error}</div>}
+                 {error && <div className="error-message">{error}</div>}
                 <form onSubmit={handleSubmit}>
                     <label>Email:</label>
                     <input type="email" value={email} placeholder='Enter E-mail' onChange={(e) => setEmail(e.target.value)} required />
@@ -34,7 +34,7 @@ const Login = () => {
                     <label>Password:</label>
                     <input type="password" value={password} placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} />
 
-                <button type="submit">Login In</button>
+                <button type="submit" variant="primary">Login</button>
             </form>
             </div>
         </div>

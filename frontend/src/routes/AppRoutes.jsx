@@ -12,6 +12,8 @@ import Categories from '../pages/Categories';
 import Orders from '../pages/Orders';
 import Kitchen from '../pages/Kitchen';
 import Reports from '../pages/Reports';
+// Components
+import ProtectedRoutes from './ProtectedRoute';
 
 
 const AppRoutes = () => {
