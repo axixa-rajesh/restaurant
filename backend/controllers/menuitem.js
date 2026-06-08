@@ -1,8 +1,10 @@
 import db from "../models/index.cjs";
+console.log(db)
 
 const { MenuItem } = db;
 import sequelize from "../config/db.js";
 import { DataTypes } from "sequelize";
+
 
 async function getMenuItems(req, res) {
   try {
