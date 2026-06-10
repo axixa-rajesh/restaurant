@@ -7,3 +7,5 @@ const connection = new Sequelize("restaurant", "root", "process.env.PASSWORD",{
 })
 
 export default connection
+
+
