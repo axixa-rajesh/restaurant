@@ -14,8 +14,8 @@ module.exports = {
       category_id:{
         type:Sequelize.STRING,
         references:{
-          model:category,
-          key:id
+          model:"categories",
+          key:"id"
         }
       },
       item_name: {
@@ -42,7 +42,7 @@ module.exports = {
       },
       status:{
         type:Sequelize.ENUM('active', "inactive"),
-        defaultValue:active,
+        defaultValue:"active",
         allowNull:false
       },
       createdAt: {
