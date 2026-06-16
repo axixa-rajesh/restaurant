@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Menuitem.belongsTo(models.category,{
+      Menuitem.belongsTo(models.Category,{
         foreignKey:"category_id",
       })
 

@@ -25,6 +25,10 @@ module.exports = {
       table_id: {
         type: Sequelize.STRING,
         allowNull:false,
+        references:{
+          model:"diningtables",
+          key:"id"
+        }
       },
       order_type:{
         type:Sequelize.ENUM('dine_in', "takeaway"),
