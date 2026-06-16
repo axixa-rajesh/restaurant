@@ -5,9 +5,8 @@ module.exports = {
     await queryInterface.createTable('Orders', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       order_number: {
         type: Sequelize.STRING,
@@ -69,9 +68,13 @@ module.exports = {
         type:Sequelize.TEXT,
         allowNull:true
       },
-      create_by:{
+      created_by:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:false,
+        references:{
+          model:"users",
+          key:"id"
+        }
       },
       createdAt: {
         allowNull: false,
