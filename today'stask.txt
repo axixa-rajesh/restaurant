@@ -1,0 +1,1 @@
+Generate the Sequelize models and migrations for Role, User, Payment, and AuditLog with the exact fields from this document.

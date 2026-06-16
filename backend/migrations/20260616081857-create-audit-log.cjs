@@ -7,12 +7,15 @@ module.exports = {
       id: {
         primaryKey: true,
         allowNull: false,
-        autoIncrement: true,
         type: Sequelize.STRING
       },
       user_id: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        references:{
+          model:"users",
+          key:"id"
+        }
       },
       action: {
         allowNull: false,

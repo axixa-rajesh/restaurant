@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
       User.hasOne(models.Payment, {
         foreignKey:"received_by"
       })
+      
+      User.hasMany(models.Order,{
+        foreignKey:"created_by"
+      })
     }
   }
   User.init({
