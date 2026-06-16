@@ -10,16 +10,39 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Category.hasMany(models.Menuitem,{
+        foreignKey:"category_id"
+      })
     }
   }
-  Category.init({
-    category_name: DataTypes.STRING,
-    description:DataTypes.STRING,
-    status:DataTypes.ENUM
-  }, {
-    sequelize,
-    modelName: 'Category',
-  });
+  Category.init(
+    {
+      category_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          notEmpty: true,
+          len: [2, 50],
+        },
+      },
+
+      description: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [0, 255],
+        },
+      },
+
+      status: {
+        type: DataTypes.ENUM("active", "inactive"),
+        allowNull: false,
+      },
+    },
+    {
+      sequelize,
+      modelName: "Category",
+    },
+  );
   return Category;
 };

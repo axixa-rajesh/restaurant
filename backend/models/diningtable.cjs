@@ -11,17 +11,48 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      diningtable.hasMany(models.Orders, {
+        foreignKey:"table_id"
+      })
     }
   }
-  diningtable.init({
-    table_number: DataTypes.STRING,
-    capacity:DataTypes.INTEGER,
-    status:DataTypes.ENUM,
-    location_note:DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'diningtable',
-  });
+  diningtable.init(
+    {
+      table_number: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          notEmpty: true,
+        },
+      },
+
+      capacity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          isInt: true,
+          min: 1,
+          max: 20,
+        },
+      },
+
+      status: {
+        type: DataTypes.ENUM("available", "occupied", "reserved"),
+        allowNull: false,
+      },
+
+      location_note: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [0, 100],
+        },
+      },
+    },
+    {
+      sequelize,
+      modelName: "diningtable",
+    },
+  );
   return diningtable;
 };
