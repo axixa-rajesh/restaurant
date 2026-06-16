@@ -15,13 +15,34 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   }
-  Category.init({
-    category_name: DataTypes.STRING,
-    description:DataTypes.STRING,
-    status:DataTypes.ENUM
-  }, {
-    sequelize,
-    modelName: 'Category',
-  });
+  Category.init(
+    {
+      category_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          notEmpty: true,
+          len: [2, 50],
+        },
+      },
+
+      description: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [0, 255],
+        },
+      },
+
+      status: {
+        type: DataTypes.ENUM("active", "inactive"),
+        allowNull: false,
+      },
+    },
+    {
+      sequelize,
+      modelName: "Category",
+    },
+  );
   return Category;
 };
