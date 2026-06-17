@@ -3,35 +3,55 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Category extends Model {
+  class Menuitem extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Category.hasMany(models.Menuitem,{
-        foreignKey:"category_id"
+      // define association here
+      Menuitem.belongsTo(models.Category,{
+        foreignKey:"category_id",
       })
+
     }
   }
-  Category.init(
+  Menuitem.init(
     {
-      category_name: {
+      item_name: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
         validate: {
           notEmpty: true,
-          len: [2, 50],
+          len: [2, 100],
         },
       },
 
       description: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         validate: {
-          len: [0, 255],
+          len: [0, 1000],
         },
+      },
+
+      price: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: false,
+        validate: {
+          min: 0,
+        },
+      },
+
+      is_veg: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+      },
+
+      is_available: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
       },
 
       status: {
@@ -41,8 +61,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Category",
+      modelName: "Menuitem",
     },
   );
-  return Category;
+  return Menuitem;
 };
