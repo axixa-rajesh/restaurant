@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/tables', TableRoutes)
+app.use('/api', TableRoutes)
 
 
 app.listen(3000, () => {
