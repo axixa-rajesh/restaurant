@@ -21,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
       Order.belongsTo(models.User,{
         foreignKey:"created_by"
       })
+
+      Order.hasMany(models.Orderitem,{
+        foreignKey:"order_id",
+      })
     }
   }
   Order.init({

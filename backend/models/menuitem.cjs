@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:"category_id",
       })
 
+      Menuitem.hasMany(models.Orderitem,{
+        foreignKey:"menu_item_id"
+      })
+
     }
   }
   Menuitem.init(
