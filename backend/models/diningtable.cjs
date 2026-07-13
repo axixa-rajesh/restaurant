@@ -18,6 +18,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   diningtable.init(
     {
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    },
       table_number: {
         type: DataTypes.STRING,
         allowNull: false,

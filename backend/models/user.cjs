@@ -21,14 +21,26 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Order,{
         foreignKey:"created_by"
       })
+
+      User.hasMany(models.Orderitem,{
+        foreignKey:"received_by"
+      })
     }
   }
   User.init({
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    },
     full_name: DataTypes.STRING,
     email:DataTypes.STRING,
     phone:DataTypes.STRING,
     password_hash:DataTypes.STRING,
-    status:DataTypes.ENUM,
+    status:{
+        type:Sequelize.ENUM('active','inactive'),
+        defaultValue:"active"
+      },
     role_id:DataTypes.STRING
   }, {
     sequelize,

@@ -16,11 +16,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Payment.init({
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    },
     order_id: DataTypes.STRING,
     payment_date: DataTypes.DATE,
     amount:DataTypes.DECIMAL,
-    payment_method:DataTypes.ENUM,
-    payment_status:DataTypes.ENUM,
+    payment_method:{
+        type:Sequelize.ENUM('cash','card','upi'),
+        defaultValue:"cash",
+        allowNull:false
+      },
+    payment_status:{
+        type:Sequelize.ENUM('success','failed','refunded'),
+        defaultValue:"success",
+        allowNull:false
+      },
     transaction_ref:DataTypes.STRING,
     received_by:DataTypes.STRING
   }, {
