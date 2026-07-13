@@ -16,9 +16,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Role.init({
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    },
     role_name: DataTypes.STRING,
     description:DataTypes.STRING,
-    status: DataTypes.ENUM
+    status: {
+        type:Sequelize.ENUM('active','inactive'),
+        defaultValue:"active",
+        allowNull:false
+    }
   }, {
     sequelize,
     modelName: 'Role',

@@ -23,6 +23,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   Menuitem.init(
     {
+          id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    },
       item_name: {
         type: DataTypes.STRING,
         allowNull: false,

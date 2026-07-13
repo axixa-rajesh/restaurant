@@ -14,6 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   AuditLog.init({
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    },
     user_id: DataTypes.STRING,
     action: DataTypes.STRING,
     entity_name: DataTypes.STRING,
